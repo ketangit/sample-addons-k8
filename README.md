@@ -22,6 +22,6 @@ kubectl apply -n argocd -f app-of-apps.yaml
 
 argocd app list
 
-argocd app sync add-ons
+argocd app sync k8-addons
 ```
 
