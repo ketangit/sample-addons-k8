@@ -3,15 +3,27 @@ kind: Application
 metadata:
   name: k8-addons
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io  
 spec:
   project: default
-  syncPolicy:
-    automated:
-      prune: true
   source:
     repoURL: https://github.com/ketangit/sample-addons-k8
     targetRevision: HEAD
     path: addons
+    helm:
+      release: addons
+      values: |
+        region: us-east-1
+        account: XXXXXXXXXXXX
+        clusterName: sample-eks
+        environment: dev
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

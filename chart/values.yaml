@@ -1,0 +1,21 @@
+# Global Values
+repoUrl: 'https://github.com/ketangit/sample-addons-k8'
+targetRevision: HEAD
+region: ''
+account: ''
+clusterName: ''
+environment: ''
+destinationServer: ''
+argoNamespace: ''
+argoProject: ''
+domain_name_suffix: ''
+
+# Cert Manager Values
+certManager:
+  enable: true
+  createNamespace: true
+  serviceAccountName:
+
+# Metrics Server Values
+metricsServer:
+  enable: true
