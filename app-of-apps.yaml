@@ -10,6 +10,7 @@ spec:
   source:
     repoURL: https://github.com/ketangit/sample-addons-k8
     targetRevision: HEAD
+    path: chart
     helm:
       values: |
         region: us-east-1
