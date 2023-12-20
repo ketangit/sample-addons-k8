@@ -19,25 +19,9 @@ brew install argocd
 argocd login $ARGOCD_SERVER --username admin --password $ARGOCD_PWD --insecure
 
 kubectl apply -n argocd -f app-of-apps.yaml
+
+argocd app list
+
+argocd app sync add-ons
 ```
 
-### Sample application definition
-```yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: k8-addons
-  namespace: argocd
-spec:
-  project: default
-  syncPolicy:
-    automated:
-      prune: true
-  source:
-    repoURL: https://github.com/ketangit/sample-addons-k8
-    targetRevision: HEAD
-    path: addons
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: argocd
-```
