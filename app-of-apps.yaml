@@ -12,7 +12,6 @@ spec:
     targetRevision: HEAD
     path: addons
     helm:
-      release: addons
       values: |
         region: us-east-1
         account: XXXXXXXXXXXX
