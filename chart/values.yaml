@@ -18,4 +18,4 @@ certManager:
 
 # Metrics Server Values
 metricsServer:
-  enable: true
+  enable: false
